@@ -26,7 +26,7 @@ public class EmployeeController {
      List<Employee> getAllEmployee(){
         return  employeeService.getAllEmployee();
      }
-    @GetMapping("/getAllEmployee/{EmployeeName}")
+    @GetMapping("/getEmployee/{EmployeeName}")
      Employee getEmployeeByName(@PathVariable  String employeeName){
         return  employeeService.getEmployeeByName(employeeName);
      }

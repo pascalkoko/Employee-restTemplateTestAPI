@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/RestTemplate")
 public class RestTemplateController {
-
     private RestTemplateService restTemplateService;
 
     public RestTemplateController(RestTemplateService restTemplateService) {
@@ -20,8 +19,14 @@ public class RestTemplateController {
          return  restTemplateService.getAllEmployee();
     }
 
+    @GetMapping("/getEmployee/{EmployeeName}")
+    public Employee getEmployeeByName(@PathVariable  String employeeName){
+        return  restTemplateService.getEmployeeByName(employeeName);
+    }
+
     @PostMapping("/addEmployee")
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee){
         return  restTemplateService.createEmployee(employee);
     }
+
 }
